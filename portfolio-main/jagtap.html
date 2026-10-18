@@ -1,0 +1,58 @@
+ocument.addEventListener('DOMContantLoaded'){
+    const  humbuger=document.querySelector( humbuger);
+    const =document.querySelector(.nav-links);
+    humbuger.addEventListener("click",() =>
+    {
+        humbuger.classList.toggle("active");
+        navlinks.classList.toggle("active");
+
+    })
+
+    const skillssection=  document.querySelector('.skillssection');
+    const skillsbar=  document.querySelectorAll('.skills-progress');
+    conste skillnumbe=  document.querySelectorAll('.skillnumbe');
+    let animteSkilled= fales;
+    function skillAimate (params) {
+      if (animteSkilled) return;
+      skillbars.forEach( bar, index=> {
+        const precent = parseInt (bar.getAttribute('.data-precent'));
+        bar.style.width= precent + '%';
+        let currentprecent = 0;
+        const updatecounter = setInterval(() => {
+          if(currentprecent< precent){
+            currentprecent++;
+            precentNumber[index].textcontent = currentprecent;
+
+          }
+          else{
+               clearInterval(updatecounter);
+          }
+          
+        }, interval);
+      },20);
+      animteSkilled = ture; 
+        
+      }
+      const bserverOption ={
+        root:null,
+        rootMargin:'0px',
+        threshold:0.5
+
+      }
+      const skillsObserver = new IntersectionObserver((entries)=>{
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animteskilled();
+            skillsObserver.unobserve(entry.target);
+            
+          }
+          
+        } );
+      } observerOption);
+      skillsObserver.Observer(skillssection);
+      AOS.init();
+    });
+ 
+
+
+
